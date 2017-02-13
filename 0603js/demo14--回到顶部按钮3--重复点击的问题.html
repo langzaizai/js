@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+<style>
+#btn1 {position:fixed; bottom:0; right:0;}
+</style>
+<script type="text/javascript">
+window.onload = function (){
+	var oBtn = document.getElementById('btn1');
+	var bSys = true;//1111设置一个真值
+	var timer = null;
+	//如何检测用户拖动了滚动条
+	window.onscroll=function (){//当发生滚动事件时
+		if(!bSys){//3333如果bSys的值为假，则说明不是JS或是系统让滚动条移动的，就说明是用户在拖动滚动条，我们就关闭定时器
+			clearInterval(timer);//关闭定时器
+		}
+		bSys=false;//4444这个值就设置为假，也就不会执行下面的37行了
+	};
+	
+	
+	oBtn.onclick = function (){
+		//开定时器之前，先关闭所有定时器，解决重复点击“按钮”时，焦点丢失问题
+		clearInterval(timer);
+		//开定时器
+		timer = setInterval(function(){//开定时器
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		var iSpeed = Math.floor(-scrollTop/8);
+		
+		if(scrollTop==0){//当被卷去的高度为0时，清除定时器；
+			clearInterval(timer);
+		}
+		
+			bSys=true;//2222每次在赋值滚动到页面顶端时，都先把bSys设置为真值，即是JS或是系统让其滚动的，然后再赋值
+			document.documentElement.scrollTop = document.body.scrollTop = scrollTop + iSpeed;
+		},80);
+	};
+};
+</script>
+</head>
+
+<body>
+但做到这一步的问题是：只有当scrollTop=0时，再拖动滚动条才有作用，如果在滚动条还没有运动到顶部就拖动滚动条的话就会出现问题，下一节继续介绍。
+<span id="top"></span><br />
+1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br />39<br />40<br />41<br />42<br />43<br />44<br />45<br />46<br />47<br />48<br />49<br />50
+<input id="btn1" type="button" value="回到顶部" />
+</body>
+</html>

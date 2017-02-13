@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>侧边栏</title>
+<style type="text/css">
+#div1 {width:100px; height:100px; background:green; position:absolute; right:0; top:0;/*如果让元素运动，此处要加绝对定位*/}
+</style>
+<script type="text/javascript">
+window.onload = window.onresize = window.onscroll = function (){
+	var oDiv = document.getElementById('div1');
+	//思想：div的居顶距离 = 网页卷去的高度+（可视区页面高度-div自身高度）/2；
+	//所以先定义一个网页卷去的高度；获取scrollTop本身又具有兼容性，所以可以使用if判断或者直接用||运算符简单化；
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	//还需要定义一个div距离可视区顶部的距离
+	var oHeight = (document.documentElement.clientHeight-oDiv.offsetHeight)/2;
+	//oDiv.style.top = scrollTop + oHeight + 'px';
+	//加入js运动
+	startMove(oDiv,{top:scrollTop+oHeight});//缓缓滑动,参数1：动哪个元素，参数2：距离整个网页的高度
+}
+</script>
+</head>
+
+<body style="height:2000px;">
+    <div id="div1"></div>
+此种滑动效果兼容性比较好，非IE6下可以用纯粹的CSS的定位方式，但由于IE6不支持固定定位，所以，我们可以使用运动框架的JS。
+</body>
+</html>

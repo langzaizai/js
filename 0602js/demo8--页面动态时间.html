@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript">
+window.onload = function moveTime(){
+	var myDate = new Date();//新建日期对象
+	var hour = myDate.getHours();//获取时
+	var minu = myDate.getMinutes();//获取分
+	var sec = myDate.getSeconds();//获取秒
+	var clock = document.getElementById('myclock');
+	//默认显示上午：AM。
+	var apm = 'AM';
+	//做出判断
+	if (hour>12){
+		hour = hour - 12;
+		apm = 'PM';
+	}
+	if (minu<10){
+		minu = '0' + minu;
+	}
+	if (sec<10){
+		sec = '0' + sec;
+	}
+	clock.innerText = hour + ':' + minu + ':' + sec + ':' + apm;
+	
+	setInterval('moveTime()',1000)//setInterval是重复执行的
+}
+
+</script>
+</head>
+
+<body>
+setInterval(参数1：动作，参数2：时间单位);
+<h1>动态时间</h1>
+<span id="myclock"></span>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#div1 { width:200px; height:30px; background:red;}
+#div2 { width:150px; height:20px; background:#ccc; margin:10px; display:none;}
+</style>
+<script type="text/javascript">
+window.onload = function (){
+	var oDiv1 = document.getElementById('div1');
+	var oDiv2 = document.getElementById('div2');
+	//动作
+	
+	var timer = 0;
+	//定时一个存储刚开启的定时器的变量
+	oDiv1.onmouseover = function (){
+		clearTimeout(timer);//清除38行处的oDiv2.onmouseout中存储的定时器
+		oDiv2.style.display = 'block';//也就是说单鼠标移入到红块的时候，灰块始终显示，
+	}
+	oDiv1.onmouseout = function (){
+		//此时移出红块之后，灰块立马消失，所以需要设置一个定时器，延迟灰块的消失；
+		//setTimeout(参数1：动作；参数2：隔多长时间执行前面的动作其时间单位为毫秒);
+		timer = setTimeout(function(){//开启延时定时器  function函数是它的第一个参数；
+			oDiv2.style.display = 'none';
+		},1000)//当鼠标离开红块1秒后灰块再消失；
+	}
+	oDiv2.onmouseover = function (){//鼠标移入到灰色块上时
+		//关闭延时器，让灰色块一直显示，而不是延迟1秒再消失
+		//将上面的定时器赋给一个变量timer
+		clearTimeout(timer);
+	}
+	oDiv2.onmouseout = function (){
+		//oDiv2.style.display='none';//灰色块隐藏,
+		//此时，有个问题，当我们把鼠标从灰色块移动到红色块上时，会有一个闪烁效果，这是因为，我们把鼠标从灰色块移出后，灰色块就消失了，但经过一个短距离的移动，鼠标重新回到了红色块上时，又执行了，鼠标移入红色块即显示灰块的“oDiv1.onmouseover”函数，这样的一个状态时，客户体验是不好的，所以，我们需要改进。
+        //解决思路：鼠标移出灰块时，不立即隐藏，而是延时隐藏；\
+		timer = setTimeout(function(){
+			oDiv2.style.display = 'none';
+		},300);
+	}
+}
+</script>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+	var arr = ['张三','李四','王五'];
+	window.onload = function (){
+		var aBtn = document.getElementsByTagName('input');
+		var aP = document.getElementsByTagName('p');
+		var i=0;
+		for (i=0;i<aBtn.length;i++){
+			//动作之前添加索引值index,添加索引值是为了匹配某些元素或者建立某种对应关系；
+			aBtn[i].index = i;
+			aBtn[i].onclick = function (){
+				//alert(i);此时弹出的都是3，这是作用域的问题
+				//alert(this.index);
+				//this.value = arr[this.index];
+				aP[this.index].innerHTML = arr[this.index];
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<input type="button" id="btn1" value="按钮1" />
+<input type="button" id="btn1" value="按钮2" />
+<input type="button" id="btn1" value="按钮3"/>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+</body>
+</html>

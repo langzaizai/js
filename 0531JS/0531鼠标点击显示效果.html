@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+p, ul, li { padding: 0; margin: 0; list-style: none; }
+#box { font-size: 12px; color: #00c; width: 58px; margin: 0 auto; }
+p { width: 55px; height: 24px; line-height: 24px; padding-left: 3px; background: url(ico.gif) no-repeat right 4px; cursor:pointer;}
+ul { width: 56px; border: 1px solid #9a99ff; display: none; }
+a { text-decoration: none; display: block; height: 24px; line-height: 24px; text-align: center; color: #00c; }
+a:hover { background: #d9e1f6; }
+</style>
+<script type="text/javascript">
+window.onload = function (){
+	//获取
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('ul1');
+	//动作
+	oBtn.onclick = function(){
+		//oUl.style.display = 'block';
+		//判断
+		if(oUl.style.display == 'block'){
+			oUl.style.display = 'none';
+		}else{
+			oUl.style.display = 'block';
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+	<p id="btn">输入法</p>
+	<ul id="ul1">
+		<li><a href="#">手写</a></li>
+		<li><a href="#">拼音</a></li>
+		<li><a href="#">关闭</a></li>
+	</ul>
+</div>
+效果思路：如果菜单已经是显示的，把菜单隐藏；如果菜单是隐藏的，把菜单显示；<br />
+这里就是说p标签是我们需要点击的，当ul显示时我们点击P标签就隐藏其，反之，当ul隐藏时，我们点击p标签就将其显示出来。
+
+</body>
+</html>

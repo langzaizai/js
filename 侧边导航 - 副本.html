@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0;}
+body { font-size:14px; font-weight:bold;}
+a{ display:block; text-decoration:none; color:#f30;}
+.container { margin:0 auto; width:1000px; height:1000px; background:#CCC;}
+.slidebar { /*position:fixed;*/ position:absolute; right:90px; top:0;}
+p { padding:20px; font-size:16px; font-weight:normal; line-height:50px;}
+
+ul { list-style:none;}
+li { text-align:center; width:50px; height:50px; line-height:50px; border:1px solid #CCC; background:#FFF;}
+.active { background:#f30;}
+.active a { color:#fff;}
+</style>
+<script src="move.js"></script><!--加入JS运动框架 -->
+<script type="text/javascript">
+window.onscroll = window.onload = window.onresize =  function (){
+	var oDiv = document.getElementById('div1');
+	var oDiv2 = document.getElementById('div2');
+	//var oUl = oDiv1.getElementsByTagName('ul');
+	//var aLi = oUl.getElementsByTagName('li');
+	
+	var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+	var t = (document.documentElement.clientHeight - oDiv2.offsetHeight)/2;
+	//DIV块顶部距离可视区顶部的距离=网页可见区域高-DIV高度/除以2
+	oDiv2.style.top = scrollT + t +'px';
+	//当前DIV块距离或整个网页的顶部的高度=网页被卷去的高+当前DIV块顶端距离视区的顶端的距离
+	
+}
+</script>
+</head>
+
+<body>
+    <div class="container" id="div1">
+    	<p>生活，没有什么大道理可言，过日子，就是一种心情， 用好的心情去生活，累也不说累，苦也不言苦。 幸福，或许正是体现在这“不说累”和“不言苦”当中……
+
+生活，就是过的一种心情　　我也常常会累，也常常会心情浮燥，常常在一些早已老去的回忆里念念不忘；常常因为将心情投入了哪段文、或者是哪首歌而引发了些感慨；也很容易陷入别人的情绪或别人的故事；所以，也总是絮絮着些忧伤。
+
+　　实际生活，却是在甩甩打打中过得简单而痛快，并没让哪种琐事牵拌着情绪过日子，也不让太多杂七杂八的事乱了心绪，所以，生活有时候尽管会忙碌些繁琐些，心却并不累。
+
+　　过日子，真的就是个心情， 歌里唱的，剧中演的，或许会有那么点滴的情绪影射，却不是完全属于自己的，感慨过之后，就好好过自己的日子， 无非就是一家老小，无非就是家庭工作，而一切的一切，最终无非都落在了“心情”二字之上。
+
+　　生活，不是件简单的事， 没有太多的一帆风顺，也没有太多的心想事成，有的，只是些随时可能的“碰壁”……
+
+　　或许，倾心已久的人就在你举目可见的地方，却不一定是在等你；
+
+　　或许，付出努力和艰苦后，你的钞票并不会乖乖地躲进你的腰包里；
+
+　　或许，积年累月地寻找着突破事业的窗口，现实却并不成全你；
+
+　　或许，你的肉体会遭遇些病痛；
+
+　　或许，你的亲人在经历些变故；
+
+　　或许，你的亲人在经历些变故；
+
+　　或许，你的亲人在经历些变故；
+
+　　或许，你的亲人在经历些变故；
+
+　　或许，你的明天依旧遥远；
+
+　　或许，……
+
+　　因这种种或许， 难免有人会彷徨，难免有人会失意，会怨天尤人， 可是，有点情绪不要紧，当走入一种消极的情绪后，要极时地走出来，努力调整自己， 不要让坏的情绪长久地占据你的心灵，影响你本可以开心和幸福的生活。
+
+　　过日子，调整心态，保持好心情是很重要的。 不管什么样的困难，不管什么样的挫折，总会有雨过天晴的时候，忧伤和埋怨解决不了任何问题，唯有积极面对。
+
+　　正如很多人所说的，笑对人生，这，就是一种积极的生活态度， 当我们努力地克服了自身的狭隘自私，当我们努力地学习了感恩和知足，当我们努力地懂得了宽容与微笑，
+
+　　那么，简单而开心的生活便离我们不会遥远。
+
+　　感恩，知足，微笑，简单，这样方能赢得开心大世界。
+
+　　心情的颜色是活泼热烈的红色，是生机盎然的绿色，是尊贵心情的颜色是活泼热烈的红色，是生机盎然的绿色，是尊贵华丽心情的颜色是活泼热烈的红色，是生机盎然的绿色，是尊贵华丽的黄色， 心情的颜色是活泼热烈的红色，是生机盎然的绿色，是尊贵华丽的黄色， 的黄色， 华丽的黄色， 好好地，用这种种颜色做心情，来书写生活，不要让它变得灰暗……</p>
+
+
+    </div>
+    <div class="slidebar" id="div2">
+        <ul>
+            <li class="active"><a href="#" target="_blank">大促</a></li>
+            <li><a href="#" target="_blank">时尚</a></li>
+            <li><a href="#" target="_blank">品质</a></li>
+            <li><a href="#" target="_blank">特色</a></li>
+            <li><a href="#" target="_blank">实惠</a></li>
+        </ul>
+    </div>
+</body>
+</html>

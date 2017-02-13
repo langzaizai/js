@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>电影评分小例子</title>
+<style type="text/css">
+*{ padding:0; margin:0;}
+ul { list-style:none;}
+br { clear:both;}
+.container { position:absolute; left:50px; top:50px; width:400px; height:200px; border:1px solid #ccc;}
+.pic { float:left; width:130px;}
+.right{ float:left; margin:10px 0 10px 16px; width:250px;}
+.comment { position:relative;}
+li { float:left; width:28px; height:28px; background:url(star.gif) no-repeat;}
+#cont { position:absolute; left:0; top:28px; width:100px; height:20px; line-height:20px; border:1px solid #ccc; font-size:12px; color:red; background:#FFC; display:none;}
+.active { background:url(star.gif) no-repeat 0 -29px; }
+.intro { margin-top:10px; font-size:12px; color:#666;}
+</style>
+<script type="text/javascript">
+var aData = ['一般','好','较好','很好','灰常好'];
+window.onload = function (){
+	var oComment = document.getElementById('comment');
+	//获取oComment其中的所有li元素
+	var aLi = oComment.getElementsByTagName('li');
+	//获取#cont这个P标签
+	var oP = document.getElementById('cont');
+	//循环初始化
+	var i = 0;
+	for (i=0;i<aLi.length;i++){
+		aLi[i].index = i;
+		aLi[i].onmouseover = function(){
+			oP.style.display = 'block';
+			oP.innerHTML = aData[this.index];
+			//当鼠标移入时，op即星星下面的P标记中的文字是当前这个序号，即数组的键，也就是输出数组的值
+			//this.className = 'active';
+			//注意：如果只用this的话只是单纯的点亮鼠标指到的当前的星星 
+			//现在要求是点亮当前以及其其前面的所有的星星，所以需要用到一个小循环；还需要用到索引值
+			for (i=0;i<=this.index;i++){
+				aLi[i].className = 'active';
+			}
+		}
+		aLi[i].onmouseout = function(){
+			oP.style.display = 'none';
+			for(i=0;i<aLi.length;i++){
+				aLi[i].className = '';
+				aLi[0].className = 'active';
+			}
+		}
+	}
+	
+}
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="pic"><img src="film.jpg" alt="" title="" width="130" height="200" /></div>
+        <div class="right" id="right">
+        	<div class="comment" id="comment">
+            	<ul>
+                	<li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <br />
+                </ul>
+                <p id="cont">一般</p>
+            </div>
+            <p class="intro">
+            	导演：张思麟<br /><br />
+                主演：刘诗诗 郑恺<br /><br />
+                简介：《那年青春我们正好》的故事发生在1997年至2014年间，刘诗诗与郑恺饰演的男女主角在理想与现实中迷茫、妥协与抗争的故事。
+			</p>
+        </div>
+    </div>
+</body>
+</html>

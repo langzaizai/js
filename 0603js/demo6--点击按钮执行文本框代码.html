@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css"></style>
+<script type="text/javascript">
+//目地：打开一个新窗口，并且把当前窗口中的内容，输出到新窗口中。
+window.onload = function (){
+	var oBtn = document.getElementById('btn1');
+	var oTxt = document.getElementById('txt1');
+	oBtn.onclick = function (){
+		var newWin = window.open('','_blank');
+		newWin.document.write(oTxt.value);
+		
+	} 
+}
+</script>
+</head>
+
+<body>
+<textarea id="txt1" rows="10" cols="40"></textarea><br />
+<input id="btn1" type="button" value="预览看效果" />
+这种效果一般出现在一些源码网站中，常见的特效代码预览功能。
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+body { background:url(images/index.png) no-repeat;}
+img { position:absolute; left:300px; top:50px; width:400px; height:300px; display:none;}
+</style>
+<script type="text/javascript">
+	window.onload = function (){
+		var oImg = document.getElementById('adver');
+		setTimeout(function(){
+			oImg.style.display = 'block';//页面加载2秒后开始显示此广告图片
+		},2000);
+		setTimeout(function(){
+			oImg.style.display = 'none';
+		},5000);//展示5秒后再消失
+	}
+</script>
+</head>
+
+<body>
+<img id="adver"src="images/ad.jpg" alt=""/>
+</body>
+</html>

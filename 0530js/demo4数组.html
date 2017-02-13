@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>数组</title>
+<script type="text/javascript">
+var arr = ['我','你','她','它','大家'];
+var arr1 = ['1','2','haha','呵呵','丑','nme'];
+var str = '我们=你们=他妈=哈哈';
+
+/*arr.shift();      //从数组头部删除一个值
+alert(arr);*/
+
+/*arr.unshift('傻不傻！');    //向数组头部添加一个值
+alert(arr);
+alert(arr.length);*/
+
+/*arr.push(6,9,9);   //可以给数组的尾部添加一个值
+                     //哪个数组.push(参数：需要添加的值);
+alert(arr);
+alert(arr.length);
+
+arr.pop();
+alert(arr);           //可以删除数组尾部的一个值
+alert(arr.length);*/
+
+alert(arr.concat(arr1));  //字符串的连接，使用+号即可;但是数组连接用concat,会生成一个新的数组；
+alert(arr.join('%'));  //把数组中的数值连起来，形成字符串，并在其每个数值之间加"内容"：进行连接；
+var arr2 = str.split('='); //去掉分隔符=，使其成为一个新的数组；
+alert(arr2);
+
+arr.splice(1,2,'a','d','e'); //从数组的第1个位置删除两个值，并在此处插入后面的3个值；
+alert(arr);
+
+arr.splice(4,1);  //从数组的第4个位置删除1个值；
+alert(arr);
+
+
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+.nav { width:100px; height:100px; color:#fff; background:red;}
+</style>
+<script type="text/javascript">
+function toGreen(){
+	var oDiv1 = document.getElementById('div1');
+	oDiv1.style.width='200px';
+	oDiv1.style.height='200px';
+	oDiv1.style.background='green';
+}
+function toRed(){
+	var oDiv2 = document.getElementById('div1');
+	oDiv2.style.width='100px';
+	oDiv2.style.height='100px';
+	oDiv2.style.background='red';
+}
+</script>
+</head>
+
+<body>
+<div class="nav" id="div1" onMouseOver="toGreen();" onMouseOut="toRed();">行间</div>
+</body>
+</html>

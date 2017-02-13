@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>结构/样式/行为三者分离</title>
+<style type="text/css">
+.world{ width:100px; height:100px; color:#fff; background:red;}
+</style>
+<script type="text/javascript">
+//定义函数
+function toGreen(){
+	var ODiv1 = document.getElementById('div1');
+	ODiv1.style.width = '200px';
+	ODiv1.style.height = '200px';
+	ODiv1.style.background = 'green';
+}
+function toRed(){
+	var ODiv2 = document.getElementById('div1');
+	ODiv2.style.width = '100px';
+	ODiv2.style.height = '100px'; 
+	ODiv2.style.background = 'red';
+}
+//使用函数
+window.onload = function(){
+	//获取
+	var ODiv = document.getElementById('div1');
+	//发生动作事件
+	ODiv.onmouseover = toGreen;
+	ODiv.onmouseout = toRed;
+}
+
+
+</script>
+</head>
+
+<body>
+	<div class="world" id="div1">我们的世界</div>
+</body>
+</html>

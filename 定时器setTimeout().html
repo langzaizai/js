@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定时器练习</title>
+<style type="text/css">
+*{ padding:0; margin:0;}
+.nav { position:relative; margin:0 auto; width:120px; height:33px; background:#36C;}
+a { text-decoration:none; color:#000;}
+input { margin:0 10px; width:100px; height:30px;}
+ul {display:none; position:absolute; left:10px; top:33px; width:100px; border:1px solid #000; background:#C00;}
+li { list-style:none; text-align:center; height:20px; line-height:20px; border-bottom:1px dashed #FC6; font-size:12px; cursor:pointer;}
+li a { display:block;}
+li a:hover { background:#FFC;}
+</style>
+<script type="text/javascript">
+window.onload = function (){
+//获取
+	var oDiv = document.getElementById('div1');
+	var oBtn = oDiv.getElementsByTagName('input')[0];
+	var oUl = oDiv.getElementsByTagName('ul')[0];
+	
+	//鼠标移上去动作
+	var timer;
+	oBtn.onmouseover = function (){
+		clearTimeout(timer);
+		oUl.style.display = 'block';
+	}
+	oBtn.onmouseout = function (){
+		timer = setTimeout(function(){
+			oUl.style.display = 'none';
+		},1000)
+	}
+	oUl.onmouseover = function (){
+		clearTimeout(timer);
+	}
+	oUl.onmouseout = function (){
+		timer = setTimeout(function(){
+			oUl.style.display = 'none';
+		},1000);
+	}
+}
+</script>
+</head>
+
+<body>
+    <div id="div1" class="nav">
+        <input type="button" value="阿迪达斯" />
+        <ul>
+            <li><a href="#">跑步鞋</a></li>
+            <li><a href="#">篮球鞋</a></li>
+            <li><a href="#">休闲鞋</a></li>
+        </ul>
+    </div>
+本案例主要练习定时器setTimeout()的使用；
+</body>
+</html>

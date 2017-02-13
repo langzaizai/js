@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>全选</title>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('nav');
+	var oBtn = document.getElementById('btn1');
+	var aInput = document.getElementsByTagName('input');
+	//动作
+	var i=0;
+	var checkflag = "false";
+	oBtn.onclick = function(){
+		if(checkflag == "false"){
+			for(i=0;i<aInput.length;i++){
+				aInput[i].checked = true;
+			}
+			checkflag = "true";
+		}else{
+			for(i=0;i<aInput.length;i++){
+				aInput[i].checked = false;
+			}
+			checkflag = "false";
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+    <div id="nav" class="nav">
+        <input id="btn1" type="submit" value="全部选择" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+    </div>
+</body>
+</html>

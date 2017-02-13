@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#btn1 {position:fixed; bottom:0; right:0;}
+</style>
+<script type="text/javascript">
+	window.onload = function (){
+		//1、获取
+		var oBtn = document.getElementById('btn1');
+		var timer = null;//记住，当每次用到定时器的时候，就必须给定时器一个初始值；
+		var bSys=true; //3-1、给一个变量，真值
+		//3、动作：当滚动条还没移动到最顶部用户就移动滚动条时
+		//3-2、进行判断，如果是用户操作滚动条，如果不是用户自己操作，那就让滚动条继续运动
+		window.onscroll = function (){
+			if(bSys==false){
+				clearInterval(timer);
+			}
+				bSys = false;
+		}
+		
+		//2、动作:浏览器自动执行点击动作
+		oBtn.onclick = function (){
+			//2-1、加定时器，让元素自动走
+		//setInterval(参数1：动作，参数2：时间单位);
+			//2-2、开定时器之前，先把所有的都关闭，
+			clearInterval(timer);
+			//然后再单独开一个定时器
+			timer = setInterval (function (){//运动：目标点=速度*时间
+				//2-1-1、获取运算所需要的值  页面卷去的高度
+				var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;//兼容其他浏览器和谷歌浏览器的||写法；
+				//运动速度=网页被卷去的高度+（-之前存储的被卷去高度/8）
+				var iSpeed = Math.floor(-scrollTop/7);
+				
+				//2-1-3、如果已经回到顶部，定时器要关闭
+				if(scrollTop==0){
+					clearInterval(timer);
+				}
+				//2-1-2、具体的运动
+				bSys=true;
+				document.documentElement.scrollTop = document.body.scrollTop = scrollTop + iSpeed; 
+			},60);
+		}
+	}
+</script>
+</head>
+
+<body>
+<input id="btn1" type="button" value="回到顶部" />
+1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br />39<br />40<br />41<br />42<br />43<br />44<br />45<br />46<br />47<br />48<br />49<br />50<br />51<br />52<br />53<br />54<br />55<br />56<br />57<br />58<br />59<br />60
+</body>
+</html>

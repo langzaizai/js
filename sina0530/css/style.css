@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+*{ padding:0; margin:0;}
+ul{ list-style:none;}
+a{ text-decoration:none; color:#000; text-align:center;}
+a:hover { color:#f30; background:#edeef0;}
+img { border:none;}
+br{ clear:both;}
+
+.container {background:#fff; border:1px solid #666;}
+.header {margin:0 auto; width:1200px; height:60px; }
+
+.shortNav{ float:left; width:350px;}
+.shortNav li , .longNav li { float:left; width:90px;}
+li#selector { position:relative;}
+.shortNav a.biaozhi { width:100px; background:url(../images/arrow.png) no-repeat right center;}
+.shortNav a.biaozhi:hover {background:#edeef0 url(../images/arrow.png) no-repeat right center;;}
+.shortNav a , .longNav a { display:block; height:60px; line-height:60px; }
+
+ul.subNav { position:absolute; left:0; top:60px; width:100px; border-left:1px solid #F93; border-right:1px solid #F93;  background:#fff; display:none;}
+.subNav li { border-bottom:1px solid #F93; width:100px;}
+.subNav a { height:24px; line-height:24px; font-size:12px; color:#999;}
+
+.longNav { float:right; width:700px;}
+.longNav li span.arrow { display:inline-block; width:12px; height:5px; background:url(../images/arrow.png) no-repeat 3px -2px;}
+
+.search {position:relative; clear:both; margin:20px auto; width:500px;}
+.search form { overflow:auto; border:1px solid #ccc; width:500px;}
+.search input {  border:none; background:none; height:35px;}
+input.title { float:left;  width:90px; border-right:1px solid #ccc; background:url(../images/arrow.png) no-repeat 64px 17px;}
+input.txt { float:left; padding-left:10px; width:330px; line-height:35px;}
+input.subBtn { float:right; width:68px; height:35px; background:url(../images/btnbg.png) no-repeat; cursor:pointer;}
+
+.subSearch{ width:90px; position:absolute; left:0; top:36px; border:1px solid #ccc; background:#fff; display:none;}
+.subSearch li { line-height:22px;}
+.subSearch li a { display:block; border-bottom:1px solid #ccc; font-size:12px;}

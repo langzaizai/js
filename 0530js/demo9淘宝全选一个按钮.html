@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>淘宝</title>
+<script type="text/javascript">
+window.onload = function(){
+//获取
+var oBtn1 = document.getElementById('btn1');
+var aInput = document.getElementsByTagName('input');
+//动作
+/*oBtn1.onclick = function(){
+	aInput.checked = true;*/
+	//aInput.length
+	//引入for循环进行控制
+	var i=0;
+	var checkflag = 'false';
+	oBtn1.onclick = function (){
+		//用if判断语句
+		if(checkflag == 'false'){
+			for(i=0;i<aInput.length;i++){
+				aInput[i].checked = true;
+			}
+			checkflag = 'true';
+		}else{
+			for(i=0;i<aInput.length;i++){
+				aInput[i].checked = false;
+			}
+			checkflag = 'false';
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+    <form method="post" action="#">
+        <input type="button" id="btn1" value="全选" /><br />
+        <input type="checkbox" value="美国"/>美国<br />
+        <input type="checkbox"/>中国<br />
+        <input type="checkbox"/>加拿大<br />
+        <input type="checkbox"/>非洲<br />
+        <input type="checkbox"/>韩国<br />
+        <input type="checkbox"/>日本<br />
+        <input type="checkbox"/>英国<br />
+        <input type="checkbox"/>德国
+    </form>
+</body>
+</html>

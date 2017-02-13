@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+* { padding:0; margin:0;}
+ul { list-style:none;}
+body { color:#000; font-size:14px; font-family:Arial, Helvetica, sans-serif;}
+a{ text-decoration:none; color:#36C;}
+.nav { position:absolute; left:100px; top:50px; width:120px;}
+h3 { padding-left:6px; color:#09C; background:url(../arrow.png) no-repeat right; cursor:pointer;}
+ul { text-align:center; width:120px; border:1px solid #09F; display:none;}
+li { border-bottom:1px dashed #CCC;}
+li a { display:block; line-height:22px;}
+li a:hover { color:#fff; background:#9CF;}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	//获取
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('ul1');
+	//动作
+	oBtn.onmouseover = function(){
+		oUl.style.display = 'block';
+	}
+	oBtn.onmouseout = function (){
+		oUl.style.display = 'none';
+	}
+}
+</script>
+</head>
+
+<body>
+<div class="nav" id="nav">
+	<h3 id="btn">运动休闲品牌</h3>
+    <ul id="ul1">
+    	<li><a href="#" target="_blank">粉丝</a></li>
+        <li><a href="#" target="_blank">路人</a></li>
+        <li><a href="#" target="_blank">@我</a></li>
+    </ul>
+</div>
+</body>
+</html>

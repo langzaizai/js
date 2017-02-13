@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box {width:100px; height:200px; background:red;}
+</style>
+<script type="text/javascript">
+	function getStyle(obj,attr){//封装currentStyle函数，两个参数，参数1：哪个对象，参数2：哪个属性
+		/*if(obj.currentStyle){//判断哪个浏览器，因为currentStyle存在兼容性问题 需要用到getComputedStyle('',false),这是固定的写法,
+			return obj.currentStyle[attr];
+		}else{
+			return getComputedStyle(obj,false)[attr];
+		}*/
+		//这里就可以用三目写法：
+		return obj.currentStyle ? obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+	}
+	
+	window.onload = function (){
+		var oDiv = document.getElementById('div1');
+		alert(getStyle(oDiv,'height'));
+		alert(getStyle(oDiv,'width'));
+		alert(getStyle(oDiv,'backgroundColor'));
+	}
+</script>
+</head>
+
+<body>
+<div id="div1" class="box"></div>
+定义一个函数，可以兼容IE与FF，可获取非行间的CSS样式。
+</body>
+</html>

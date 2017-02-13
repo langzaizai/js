@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>侧边栏</title>
+<style type="text/css">
+#div1 {width:100px; height:100px; background:green; position:absolute; right:0; top:0;/*如果让元素运动，此处要加绝对定位*/}
+</style>
+<script type="text/javascript">
+window.onload = window.onresize = window.onscroll = function (){
+	var oDiv = document.getElementById('div1');
+	//思想：div的居顶距离 = 网页卷去的高度+（可视区页面高度-div自身高度）/2；
+	//所以先定义一个网页卷去的高度；获取scrollTop本身又具有兼容性，所以可以使用if判断或者直接用||运算符简单化；
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	//还需要定义一个div距离可视区顶部的距离
+	var oHeight = (document.documentElement.clientHeight - oDiv.offsetHeight)/2;
+	oDiv.style.top = scrollTop + oHeight + 'px';
+}
+</script>
+</head>
+
+<body style="height:2000px;">
+    <div id="div1"></div>
+但此时页面出现一个问题，即滚动时，DIV块会有抖动现象，这是因为我们频繁刷新页面的原因，我们会在下个页面中解决。
+</body>
+</html>

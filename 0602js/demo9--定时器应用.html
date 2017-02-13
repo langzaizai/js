@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0;}
+.nav { margin:0 auto; width:120px;}
+a { text-decoration:none; color:#999;}
+ul { display:none; width:80px; border:1px solid #ccc;}
+li { list-style:none; text-align:center; height:20px; line-height:20px; border-bottom:1px dashed #ccc; font-size:12px; cursor:pointer;}
+li a { display:block;}
+li a:hover { background:#FFC;}
+</style>
+<script type="text/javascript">
+window.onload = function (){
+	//1、获取
+	var oDiv = document.getElementById('div1');
+	var oBtn = oDiv.getElementsByTagName('input')[0];
+	var oUl = oDiv.getElementsByTagName('ul')[0];
+	//2、鼠标移入移出oBtn时oUl显示隐藏效果；
+	//2-3、//定时一个存储刚开启的定时器的变量
+	var timer = null;
+	oBtn.onmouseover = function (){
+		clearTimeout(timer);
+		oUl.style.display = 'block';
+	}
+	oBtn.onmouseout = function (){
+		timer = setTimeout(function(){//2-1、定时器鼠标移出按钮时，ul延迟隐藏
+			oUl.style.display = 'none';
+		},1000);
+		
+	}
+	//2-2、对Ul加动作,当鼠标放上去的时候，关闭定时器
+	oUl.onmouseover = function (){
+		clearTimeout(timer);
+	}
+	oUl.onmouseout = function (){//当鼠标移出时,ul开始定时器
+		timer = setTimeout(function(){
+			oUl.style.display = 'none';
+		},1000);
+		
+	}
+}
+</script>
+</head>
+
+<body>
+    <div id="div1" class="nav">
+        <input type="button" value="阿迪达斯" />
+        <ul>
+            <li><a href="#">跑步鞋</a></li>
+            <li><a href="#">篮球鞋</a></li>
+            <li><a href="#">休闲鞋</a></li>
+        </ul>
+    </div>
+</body>
+</html>

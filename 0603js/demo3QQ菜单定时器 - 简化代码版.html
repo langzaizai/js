@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+body,div{margin:0;padding:0;}
+.page{width:800px;height:600px;margin:0 auto; position:relative;}/*整个外层容器的样式*/
+.left{ position:absolute;right:15px;top:20px; width:306px;height:391px;background:url(images/qq.png) no-repeat;}/*软件界面*/
+#head{width:52px;height:52px;background:url(images/link.png) 0 -52px no-repeat;float:left;margin:37px 0 0 12px;}/*头像*/
+a#head:hover{ background-position: 0 0;}/*移植移入时，显示上方亮图*/
+#right{position:absolute;top:30px;left:-282px; width:299px; height:207px; background:url(images/prompt.png) no-repeat;display:none;}/*用户资料*/
+</style>
+<script type="text/javascript">
+	//01、获取需要控制的元素
+window.onload = function (){
+	var oHead = document.getElementById('head');
+	var oRight = document.getElementById('right');
+	var timer = null;
+	oHead.onmouseover =  oRight.onmouseover = function (){
+		clearTimeout(timer);
+		oRight.style.display = 'block';//鼠标移到head上时，先清除right的定时器，让right始终显示；
+	}
+	oHead.onmouseout = oRight.onmouseout = function (){
+		timer = setTimeout(function(){
+			oRight.style.display = 'none';
+		},300);//鼠标移出head时，执行定时器，让right0.3秒后自动消失
+	}
+}
+</script>
+</head>
+
+<body>
+	<div class="page">
+		<div class="left">
+			<a href="#" id="head"></a><!--头像 -->
+			<div id="right"></div><!--用户资料块 -->
+		</div>
+	</div>
+
+</body>
+</html>

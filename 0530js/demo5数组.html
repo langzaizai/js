@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript">
+var arr = ['hehe','tht','哈哈哈哈','obt','124'];
+document.write(arr.sort());  //sort排序，先数字后字母最后汉字
+
+var arr = ['hehe','tht','e3r3','obt','aefv'];
+document.write(arr.sort());  //sort排序，按照首字母的顺序
+
+var arr = ['12','45','78','2969','157'];
+document.write(arr.sort(function(a,b){return b-a}));  //sort排序，计算机按照二进制的方法进行排序，解释：a,b表示数组中的任意两个元素，若return > 0 b前a后；reutrn < 0 a前b后；a=b时存在浏览器兼容
+   // 简化一下：a-b输出从小到大排序，b-a输出从大到小排序。
+
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

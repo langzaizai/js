@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>选项卡</title>
+<style type="text/css">
+input { background:white; width:50px; height:50px; border:1px solid #FF3; font-size:18px; font-weight:bold;}
+.active { background:yellow;}
+div { width:265px; border:1px solid #FF3; display:none;}
+</style>
+<script type="tesxt/javascript">
+window.onload = function (){
+	var aBtn = document.getElementsByTagName('input');
+	var aDiv = document.getElementsByTagName('div');
+	var i = 0;//初始化值
+	for (i=0;i<aBtn.length;i++){
+		aBtn[i].index = i;//索引值
+		aBtn[i].onclick = function(){
+			for(i=0;i<aBtn.length;i++){
+				aBtn[i].className = '';//清空
+				aDiv[i].style.display = 'none';//清空，所有div不显示
+			}
+			this.className = 'active';
+			//aDiv[?].style.display = 'block';
+			aDiv[this.index].style.display = 'block';
+			
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<input class="active" type="button" value="1" />
+<input type="button" value="2" />
+<input type="button" value="3" />
+<input type="button" value="4" />
+<input type="button" value="5" />
+<div style="display:block;"><img src="images/1.jpg" />张一来了</div>
+<div><img src="images/2.jpg" />李二来了</div>
+<div><img src="images/3.jpg" />王三来了</div>
+<div><img src="images/1.jpg" />刘四来了</div>
+<div><img src="images/3.jpg" />赵五来了</div>
+</body>
+</html>

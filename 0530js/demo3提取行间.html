@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提取行间调用,以后工作中所用到的方式</title>
+<style type="text/css">
+.nav{ width:100px; height:100px; color:#fff; text-align:center; background:red;}
+</style>
+<script type="text/javascript">
+function toGreen(){
+	var oDiv1 = document.getElementById('nav');
+	oDiv1.style.width = '200px';
+	oDiv1.style.height = '200px';
+	oDiv1.style.background = 'green';
+}
+function toRed(){
+	var oDiv2 = document.getElementById('nav');
+	oDiv2.style.width = '100px';
+	oDiv2.style.height = '100px';
+	oDiv2.style.background = 'red';
+}
+window.onload = function (){
+	//获取
+	var oDiv = document.getElementById('nav');
+	//动作
+	oDiv.onmouseover = toGreen;
+	oDiv.onmouseout = toRed;//从行间提取出来，使html代码更加简化；此处不能加括号，只有放在行间的时候才加括号；
+	
+}
+</script>
+</head>
+
+<body>
+<div class="nav" id="nav">你们</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0;}
+ul { list-style:none;}
+.pic { position:relative; margin:0 auto; width:80px; height:80px;}
+.pic ul { position:absolute; left:30px; top:205px;}
+.pic li { width:15px; height:15px; margin-bottom:5px;}
+.pic img { width:200px; height:200px;}
+.pic span { position:absolute; left:0; top:0; color:#F03;}
+.pic p { position:absolute; left:0; top:180px;}
+.pic p , .pic span { width:200px; height:20px; line-height:20px; text-align:center; font-size:12px; }
+.active { background:#FC6;}
+</style>
+<script type="text/javascript">
+	window.inload = function (){
+		var oDiv = document.getElementById('pic');
+		var oImg = oDiv.getElementsByTagName('img')[0];
+		var oSpan = oDiv.getElementsByTagName('span')[0];
+		var oP = oDiv.getElementsByTagName('p')[0];
+		var oUl = oDiv.getElementsByTagName('ul')[0];
+		var arrUrl = ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/4.jpg'];
+		var arrTxt = ['图片一','图片二','图片三','图片四'];
+		
+		//初始化
+		var num=0;
+		for ( var i=0;i<arrUrl.length;i++){
+			oUl.innerHTML += '<li></li>';
+		}
+		
+		//先把图片加载
+		oImg.src = arrUrl[num];
+		oP.innnerHTML = arrTxt[num];
+		oSpan.innerHTML = 1 + num +'/' + arrUrl.length;
+		
+	}
+</script>
+</head>
+
+<body>
+    <div id="pic" class="pic">
+    	<img src=""  />
+        <span>1/4</span>
+        <p>图片说明正在加载中......</p>
+        <ul>
+        </ul>
+    </div>
+</body>
+</html>

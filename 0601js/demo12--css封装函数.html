@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+.box { width:200px; height:200px; background:green;}
+</style>
+<script type="text/javascript">
+	function getStyle(obj,attr){
+		if(obj.currentStyle){
+			return obj.currentStyle[attr];
+		}else{
+			return getComputedStyle(obj,false)[attr];//为了兼容ff;
+		}
+	}
+	
+	function css(){
+		if(arguments.length == 2){
+			return getStyle(arguments[0],arguments[1]);
+		}else if(arguments.length == 3){
+			arguments[0].style[arguments[1]] = arguments[2];
+		}
+	}
+	window.onload = function (){
+		var oBtn = document.getElementById('btn');
+		var oDiv = document.getElementById('div1');
+		oBtn.onmouseover = function (){
+			css(oDiv,'backgroundColor','#f30');
+		}
+		oBtn.onmouseout = function (){
+			css(oDiv,'backgroundColor','');
+		}
+	}
+</script>
+</head>
+
+<body>
+<input type="button" value="css函数" id="btn" />
+<div class="box" id="div1"></div>
+</body>
+</html>
